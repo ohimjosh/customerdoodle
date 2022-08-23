@@ -4,19 +4,55 @@ import { Login } from "./pages/Login";
 import { Chat } from "./pages/Chat";
 import { Email } from "./pages/Email";
 import { AdminView } from "./pages/AdminView";
+import { AuthContextProvider } from "./context/AuthContext";
+import { Navbar } from "./components/Navbar";
+import { Account } from "./pages/Account";
+import { Protected } from "./components/Protected";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/email" element={<Email />} />
-          <Route path="/adminview" element={<AdminView />} />
-        </Routes>
-      </Router>
+      <AuthContextProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/chat"
+              element={
+                <Protected>
+                  <Chat />
+                </Protected>
+              }
+            />
+            <Route
+              path="/email"
+              element={
+                <Protected>
+                  <Email />
+                </Protected>
+              }
+            />
+            <Route
+              path="/adminview"
+              element={
+                <Protected>
+                  <AdminView />
+                </Protected>
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <Protected>
+                  <Account />
+                </Protected>
+              }
+            />
+          </Routes>
+        </Router>
+      </AuthContextProvider>
     </div>
   );
 }

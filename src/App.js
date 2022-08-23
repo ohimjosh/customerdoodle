@@ -8,6 +8,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { Navbar } from "./components/Navbar";
 import { Account } from "./pages/Account";
 import { Protected } from "./components/Protected";
+import { Signup } from "./components/Signup";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
                 </Protected>
               }
             />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </Router>
       </AuthContextProvider>

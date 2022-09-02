@@ -22,7 +22,8 @@ export const Navbar = () => {
       {user?.displayName ? (
         <button onClick={handleSignOut}>Logout</button>
       ) : (
-        <Link to="/login">log in</Link>
+        <><Link to="/login">Log in</Link>
+        <Link to="/chat">Chat</Link></>
       )}
     </div>
   );

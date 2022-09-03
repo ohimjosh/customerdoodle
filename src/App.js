@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
-import { Chat } from "./pages/Chat";
+import { Chat } from "./pages/Chat";  
 import { Email } from "./pages/Email";
 import { AdminView } from "./pages/AdminView";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -19,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
+          
             <Route
               path="/chat"
               element={

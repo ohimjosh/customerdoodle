@@ -15,7 +15,7 @@ export const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      navigate("/account");
+      navigate("/chat");
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,7 @@ export const Login = () => {
     setError("");
     try {
       await signIn(email, password);
-      navigate("/account");
+      navigate("/chat");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
